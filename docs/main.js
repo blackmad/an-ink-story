@@ -64,11 +64,25 @@
     function processTags(tags) { 
       tags.forEach(processTag)
     }
+    
+    function removeExistingChoices() {
+       // Remove all existing choices
+       var existingChoices = storyContainer.querySelectorAll('p.choice');
+       existingChoices.forEach(c => c.parentNode.removeChild(c));
+    }
+
+    function hideExistingChoices() {
+      // Remove all existing choices
+      var existingChoices = storyContainer.querySelectorAll('p.choice');
+      existingChoices.forEach(c => c.style.visibility = 'hidden');
+   }
 
     function continueStory() {
 
         var paragraphIndex = 0;
         var delay = 0.0;
+
+        removeExistingChoices();
 
         // Generate story text - loop through available content
         if (story.canContinue) {
@@ -124,12 +138,7 @@
                     // Don't follow <a> link
                     event.preventDefault();
 
-                    // Remove all existing choices
-                    var existingChoices = storyContainer.querySelectorAll('p.choice');
-                    for(var i=0; i<existingChoices.length; i++) {
-                        var c = existingChoices[i];
-                        c.parentNode.removeChild(c);
-                    }
+                    hideExistingChoices();
 
                     // Tell the story where to go next
                     story.ChooseChoiceIndex(choice.index);
