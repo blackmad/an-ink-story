@@ -17,6 +17,7 @@ console.log('debug', debug);
   var storyContainer = document.querySelectorAll('#story')[0];
   var choicesContainer = document.querySelectorAll('#choices')[0];
   let currentContainer = storyContainer;
+  let currentClass = null;
 
   function showAfter(delay, el) {
     setTimeout(function() {
@@ -84,8 +85,13 @@ console.log('debug', debug);
         currentContainer = currentContainer.parentElement;
         break;
       case 'P':
+        console.log('P')
         var p = document.createElement('p');
         currentContainer.appendChild(p);
+        break;
+      case 'style':
+        console.log('style')
+        currentClass = args;
         break;
     }
   }
@@ -121,6 +127,10 @@ console.log('debug', debug);
         addChoices();
       } else {
         var paragraphElement = document.createElement('span');
+        if (currentClass) {
+          paragraphElement.className = currentClass;
+          currentClass = null;
+        }
         var speed = 25;
         if (debug) {
          speed = 0;
