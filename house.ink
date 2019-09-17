@@ -1,6 +1,3 @@
-// -> note_2 
--> try_3
-
 VAR sloppy = 0
 
 You arrive at
@@ -33,12 +30,11 @@ ink, the carefully carved nib, and the scratch of the tip dragging into the pape
 * * silver
 - - embossed seal on the back. You slide your carefully manicured nail underneath the flat, first diggging one nail into the line of glue until there's a large enough opening to push your finger in and feel the cool smoothness of the paper against your fingertip.
 * a typewritten letter[] folded three times. You can see the reverse impressions of some of the struck letters through the paper. In you head, you see the metal hammers firmly striking down on the page.
-* a blank sheet of printer paper[]
 
 - The note begins, # P
--> actual_note
+-> note_1
 
-== actual_note
+== note_1
 # START_CONTAINER: div@note
 - (opts) 
 * I am so proud[] of you for being here.
@@ -58,13 +54,13 @@ VAR door_box_requires_lock=false
 * left[].
 * right[].
 - There is a
-* safe cast iron safe[] which I encourage you not to touch until you have read through all your instructions.
+* cast iron safe[] which I encourage you not to touch until you have read through all your instructions.
 ~ door_box = "safe"
 ~ door_box_requires_lock = false
 * cedar box[] with a hasp for a padlock.
 ~ door_box = "box"
 ~ door_box_requires_lock = true
-* bench[] with a lid that lifts open. #P
+* bench[] with a lid that lifts open.
 ~ door_box = "bench"
 ~ door_box_requires_lock = true
 
@@ -87,19 +83,21 @@ I am going to ask you to close your eyes again. While you are doing so, savor
 
 - (moment_done)
 * this moment when you could still leave.
+-> note_2
 
+== note_2
 - Close your eyes and #P
-* * count backwards from 10 
+* count backwards from 10 
 # END_CONTAINER: div@note
 -> count_backwards(10, "") -> 
-* * take three deep breaths[], count four in, four hold, and four out. 
+* take three deep breaths[], count four in, four hold, and four out. 
 # END_CONTAINER: div@note
 -> count_backwards(3, "in for four, hold for four, out for four") ->  
-* * keep them closed for as long as you wish. 
+* keep them closed for as long as you wish. 
 # END_CONTAINER: div@note
-* * * You keep them closed for what feels like an eternity.
-* * * You pick a number  and decide you will count your heartbeats up until that.
-* * * You blink for a second[], following the instructions to the letter.
+* * You keep them closed for what feels like an eternity.
+* * You pick a number  and decide you will count your heartbeats up until that.
+* * You blink for a second[], following the instructions to the letter.
 
 - You open your eyes and feel
 * your heartbeat speeding up.
@@ -107,9 +105,9 @@ I am going to ask you to close your eyes again. While you are doing so, savor
 * anxious to get going.
 * calm.
 
-- -> note_2
+- -> note_3
 
-== note_2
+== note_3
 # START_CONTAINER: div@note
 - I do so love to surprise you, but alas, you are very smart and at times there are tropes and stations, so I am going to assume you have already figured out what comes next.
 

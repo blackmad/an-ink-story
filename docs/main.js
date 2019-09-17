@@ -1,3 +1,7 @@
+var urlParams = new URLSearchParams(window.location.search);
+var debug = urlParams.has('debug');
+console.log('debug', debug);
+
 (function() {
   let story = null;
   fetch('story.json')
@@ -10,11 +14,13 @@
     });
 
   var storyContainer = document.querySelectorAll('#story')[0];
+  var choicesContainer = document.querySelectorAll('#choices')[0];
   let currentContainer = storyContainer;
 
   function showAfter(delay, el) {
     setTimeout(function() {
       el.classList.add('show');
+      scrollToBottom();
     }, delay);
   }
 
@@ -42,10 +48,6 @@
 
   function getValue(value) {
     if (value[0] == '=') {
-      console.log(story);
-      console.log(value);
-      console.log(story.variablesState);
-      console.log(value.substr(1));
       return story.variablesState.GetVariableWithName(value.substr(1)).value;
     } else {
       return value;
@@ -68,8 +70,6 @@
 
         const newContainer = document.createElement(elName);
         newContainer.className = className;
-        console.log(args);
-        console.log(className);
         currentContainer.appendChild(newContainer);
         currentContainer = newContainer;
         break;
@@ -95,13 +95,13 @@
 
   function removeExistingChoices() {
     // Remove all existing choices
-    var existingChoices = storyContainer.querySelectorAll('p.choice');
+    var existingChoices = choicesContainer.querySelectorAll('p.choice');
     existingChoices.forEach(c => c.parentNode.removeChild(c));
   }
 
   function hideExistingChoices() {
     // Remove all existing choices
-    var existingChoices = storyContainer.querySelectorAll('p.choice');
+    var existingChoices = choicesContainer.querySelectorAll('p.choice');
     existingChoices.forEach(c => (c.style.visibility = 'hidden'));
   }
 
@@ -109,31 +109,26 @@
     var paragraphIndex = 0;
     var delay = 0.0;
 
-    removeExistingChoices();
-
-     console.log('back in contrinue story')
     // Generate story text - loop through available content
     if (story.canContinue) {
       // Get ink to generate the next paragraph
       const paragraphText = story.Continue();
-      console.log(paragraphText);
-      console.log(story.state.currentPathString);
-      // console.log(story.currentPathString)
-      console.log(story.currentTags);
+
       processTags(story.currentTags);
 
-      console.log(paragraphText);
-
       if (paragraphText == null || paragraphText.trim() == '') {
-        console.log('goign to choices');
         addChoices();
       } else {
-        console.log('typing');
         var paragraphElement = document.createElement('span');
+        var speed = 25;
+        if (debug) {
+         speed = 0;
+        }
         const currentTypeIt = new TypeIt(paragraphElement, {
           cursor: false,
-          speed: 25,
+          speed,
           afterComplete: instance => {
+            scrollToBottom();
             addChoices();
           }
         })
@@ -141,18 +136,11 @@
           .go();
         currentContainer.appendChild(paragraphElement);
       }
-
-      // Create paragraph element
-      // paragraphElement.innerHTML = paragraphText;
-      // currentContainer.appendChild(paragraphElement);
-
-      // // Fade in paragraph after a short delay
-      // showAfter(delay, paragraphElement);
-
-      // delay += 200.0;
     }
 
     function addChoices() {
+      removeExistingChoices();
+
       // Create HTML choices from ink choices
       if (story.currentChoices.length > 0) {
         story.currentChoices.forEach(function(choice) {
@@ -160,11 +148,14 @@
           var choiceParagraphElement = document.createElement('p');
           choiceParagraphElement.classList.add('choice');
           choiceParagraphElement.innerHTML = `<a href='#'>${choice.text}</a>`;
-          storyContainer.appendChild(choiceParagraphElement);
+          choicesContainer.appendChild(choiceParagraphElement);
 
           // Fade choice in after a short delay
           showAfter(delay, choiceParagraphElement);
           delay += 200.0;
+          if (debug) {
+            delay = 0;
+          }
 
           // Click on choice
           var choiceAnchorEl = choiceParagraphElement.querySelectorAll('a')[0];
@@ -186,6 +177,5 @@
       }
     }
 
-    scrollToBottom();
   }
 })();
