@@ -1,8 +1,11 @@
+// -> note_2 
+-> try_3
+
 VAR sloppy = 0
 
 You arrive at
-* (house) a house in the suburbs[].
-* (apartment) an apartment downtown[].
+* (house) a house in Morristown[].
+* (apartment) an apartment in Bushwick[].
 * (farmhouse) a renovated farmhouse upstate[].
 
 - At eye level you see
@@ -49,13 +52,21 @@ ink, the carefully carved nib, and the scratch of the tip dragging into the pape
 - (note_done) 
 * Please read the following instructions carefully. #P
 
+VAR door_box="box"
+VAR door_box_requires_lock=false
 - Look down to your
 * left[].
 * right[].
 - There is a
-* cast iron safe[] which I encourage you not to touch until you have read through all your instructions.
+* safe cast iron safe[] which I encourage you not to touch until you have read through all your instructions.
+~ door_box = "safe"
+~ door_box_requires_lock = false
 * cedar box[] with a hasp for a padlock.
+~ door_box = "box"
+~ door_box_requires_lock = true
 * bench[] with a lid that lifts open. #P
+~ door_box = "bench"
+~ door_box_requires_lock = true
 
 -Open it up. Do you see the empty space inside? You are going to fill it. You are going to pour yourself into it as you exist in this moment and cross the threshold an empty vessel to be filled up anew. #P
 
@@ -96,12 +107,73 @@ I am going to ask you to close your eyes again. While you are doing so, savor
 * anxious to get going.
 * calm.
 
+- -> note_2
+
+== note_2
 # START_CONTAINER: div@note
 - I do so love to surprise you, but alas, you are very smart and at times there are tropes and stations, so I am going to assume you have already figured out what comes next.
 
 I ask you to do it with the level of care and intention that befits the action. #P
 
--> DONE
+Place everything you are currently wearing, carrying or holding in the {door_box} by the door. Everything. Clothing. Jewelry. Phone. Underwear. #P
+
+{
+  - door_box_requires_lock:
+    Reach underneath the {door_box}. Underneath you will find an open lock. When you are done, close the {door_box}, drop the hasp, and click the lock shut. # END_CONTAINER: div@note
+  - !door_box_requires_lock:
+    When you are finished, push the door of the safe closed and turn the handle to lock it. # END_CONTAINER: div@note
+  }
+ 
+ Of course that's what the note would say. Of course. You could have written it
+ * since you were fifteen years old.
+ * for {him} to use against you.
+ * and very well might have, in some late night sext.
+ 
+- You think to yourself
+* "Can I really do this? 
+Here?<> { 
+    - house: 
+        On this busy street?"
+    - apartment: 
+       In this hallway where anyone could walk by while I'm stripping down?"
+    - farmhouse: 
+        Well, At least no one is likely to see me here."
+    - else:
+        Exposed in the open?"
+    }
+* "How does {he} know me so well?
+Of course {he} chose<> { 
+    - house: 
+        a place just on the edge of my comfort"
+    - apartment: 
+       a place {he} knew would embarrass me"
+    - farmhouse: 
+        a secluded place {he} knew I'd feel safe."
+    - else:
+        this place."
+    }
+* "Calm down, breathe in, just a few more minutes"[] and then the click of the lock would be an irreversible choice in your past, a clear break between lives.
+
+
+- Feelings of
+* arousal
+* embarassment
+* trepidation
+rose up in your stomach.
+
+- You felt it in your fingertips as they became suddenly
+* cold and clammy.[] This wasn't a sexy feeling. You tried to move the feeling around in your body, to eroticize the fear. As you pulled off your -> clothing_undress_1 -> 
+  the fabric felt rough in your hands, like trying to carry a paper bag in winter.
+* warm and tingly.[] You wondered if the electricity you felt was visible to other.  You could almost feel them burning through the cloth as you pulled off your
+* numb and heavy.[] It felt like a struggle to lift them up to begin undressing, first your
+
+- -> DONE
+
+== clothing_undress_1
+* t-shirt
+* blouse
+* dress
+- ->->
 
 == count_backwards(count_backwards_var, extra)
 // 
@@ -234,6 +306,11 @@ VAR pronoun_chosen = false
 - walks in. 
 -> DONE
 
+// -----------------------
+// -----------------------
+// -----------------------
+// -----------------------
+
 == try_1
 {He} looks deeply at your body as you
 
@@ -246,4 +323,9 @@ VAR pronoun_chosen = false
   * * downcast at the floor.
   * * towards the {man}.
 - -> DONE
+
+// -----------------------
+// -----------------------
+// -----------------------
+// -----------------------
 
