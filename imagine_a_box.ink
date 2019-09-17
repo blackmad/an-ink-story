@@ -5,7 +5,7 @@
 VAR singular="thing"
 VAR plural="things"
 
-- What kind of a thing are you?
+- What kind of a thing are you? #
 * [a tool] I'm a tool to be used #display:second
 ~singular="tool"
 ~plural="tools"

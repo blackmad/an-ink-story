@@ -1,3 +1,5 @@
 #!/bin/sh
 
-echo "house.ink" | entr ~/Downloads/inklecate -o docs/story.json /_
+FILENAME=`basename $1`
+echo ./bin/inklecate -o docs/$FILENAME.json $1
+./bin/inklecate -o docs/$FILENAME.json $1

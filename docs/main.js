@@ -2,9 +2,10 @@ var urlParams = new URLSearchParams(window.location.search);
 var debug = urlParams.has('debug');
 console.log('debug', debug);
 
+
 (function() {
   let story = null;
-  fetch('story.json')
+  fetch(urlParams.get('story') || 'story.json')
     .then(function(response){
       return response.text();
     })
