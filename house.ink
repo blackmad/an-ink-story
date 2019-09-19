@@ -1,9 +1,13 @@
+-> note_4
 VAR sloppy = 0
 
+VAR house_word = "house"
+
 You arrive at
-* (house) a house in Morristown[].
-* (apartment) an apartment in Bushwick[].
-* (farmhouse) a renovated farmhouse upstate[].
+* (house) a house in Morristown[]. #IMG=house_in_morristown.jpg
+* (apartment) an apartment in Bushwick[]. #IMG=loft_in_bushwick.jpg
+~ house_word = "apartment"
+* (farmhouse) a renovated farmhouse upstate[]. #IMG=farmhouse_upstate.jpg
 
 - At eye level you see
 * a handwritten note[]. The lettering is
@@ -14,7 +18,8 @@ must have had someone else write this note. These little touches make you feel
 * * * like you're living in a fantasy.
 * * * cared for.
 * * * a little exhausted to keep up[], but it's the effort that counts.
-* * uneven cursive[]. {His} usual handwriting is such chickenscratch. It's adorable how {he} tries for these elegant touches
+* * uneven cursive[]. -> His_picker -> 
+usual handwriting is such chickenscratch. It's adorable how {he} tries for these elegant touches
 * * elegant[]. Sometimes it's shocking how much the reality can look and feel like the fantasy. Is that a stray mark of a fountain pen? You picture the heavy metal inkwell, the 
 ~ temp ink_color = "ink_color"
 * * * night dark black
@@ -25,16 +30,14 @@ must have had someone else write this note. These little touches make you feel
 ~ink_color="red"
 ink, the carefully carved nib, and the scratch of the tip dragging into the paper
 * an embossed envelope[], complete with a 
-* * black
-* * red
-* * silver
-- - embossed seal on the back. You slide your carefully manicured nail underneath the flat, first diggging one nail into the line of glue until there's a large enough opening to push your finger in and feel the cool smoothness of the paper against your fingertip.
+* * black #IMG=black_wax_seal.jpg
+* * red #IMG=red_wax_seal.jpg
+* * silver #IMG=silver_wax_seal.jpg
+- - wax seal on the back. You slide your carefully manicured nail underneath the flap, first diggging one nail into the line of glue until there's a large enough opening to push your finger in and feel the cool smoothness of the paper against your fingertip.
 * a typewritten letter[] folded three times. You can see the reverse impressions of some of the struck letters through the paper. In you head, you see the metal hammers firmly striking down on the page.
 
 - The note begins, # P
--> note_1
-
-== note_1
+- (note_1)
 # START_CONTAINER: div@note
 - (opts) 
 * I am so proud[] of you for being here.
@@ -83,9 +86,7 @@ I am going to ask you to close your eyes again. While you are doing so, savor
 
 - (moment_done)
 * this moment when you could still leave.
--> note_2
-
-== note_2
+- (note_2)
 - Close your eyes and #P
 * count backwards from 10 
 # END_CONTAINER: div@note
@@ -105,9 +106,7 @@ I am going to ask you to close your eyes again. While you are doing so, savor
 * anxious to get going.
 * calm.
 
-- -> note_3
-
-== note_3
+- (note_3)
 # START_CONTAINER: div@note
 - I do so love to surprise you, but alas, you are very smart and at times there are tropes and stations, so I am going to assume you have already figured out what comes next.
 
@@ -117,18 +116,24 @@ Place everything you are currently wearing, carrying or holding in the {door_box
 
 {
   - door_box_requires_lock:
-    Reach underneath the {door_box}. Underneath you will find an open lock. When you are done, close the {door_box}, drop the hasp, and click the lock shut. # END_CONTAINER: div@note
+    Reach underneath the {door_box}. Underneath you will find an open lock. When you are done, close the {door_box}, drop the hasp, and click the lock shut. 
   - !door_box_requires_lock:
-    When you are finished, push the door of the safe closed and turn the handle to lock it. # END_CONTAINER: div@note
+    When you are finished, push the door of the safe closed and turn the handle to lock it.
   }
+  
+  After locking it, let yourself into the {house} where you'll find further instructions.
+ 
+ # END_CONTAINER: div@note
+ 
+ - (note_4)
  
  Of course that's what the note would say. Of course. You could have written it
  * since you were fifteen years old.
- * for {him} to use against you.
+ * for {him}[].
  * and very well might have, in some late night sext.
  
-- You think to yourself
-* "Can I really do this? 
+- You think to yourself, "<>#P
+* Can I really do this? 
 Here?<> { 
     - house: 
         On this busy street?"
@@ -139,7 +144,7 @@ Here?<> {
     - else:
         Exposed in the open?"
     }
-* "How does {he} know me so well?
+* How does {he} know me so well?
 Of course {he} chose<> { 
     - house: 
         a place just on the edge of my comfort"
@@ -150,20 +155,51 @@ Of course {he} chose<> {
     - else:
         this place."
     }
-* "Calm down, breathe in, just a few more minutes"[] and then the click of the lock would be an irreversible choice in your past, a clear break between lives.
+* Calm down, breathe in, just a few more minutes"[] and then the click of the lock would be an irreversible choice in your past, a clear break between lives.
 
 
 - Feelings of
 * arousal
 * embarassment
 * trepidation
-rose up in your stomach.
+- rise up in your stomach.
 
-- You felt it in your fingertips as they became suddenly
-* cold and clammy.[] This wasn't a sexy feeling. You tried to move the feeling around in your body, to eroticize the fear. As you pulled off your -> clothing_undress_1 -> 
-  the fabric felt rough in your hands, like trying to carry a paper bag in winter.
-* warm and tingly.[] You wondered if the electricity you felt was visible to other.  You could almost feel them burning through the cloth as you pulled off your
-* numb and heavy.[] It felt like a struggle to lift them up to begin undressing, first your
+- You feel it in your fingertips as they turn
+* cold and clammy.[] This isn't a sexy feeling. You try to move the feeling around in your body, to eroticize the fear. You begin by pulling off your -> clothing_undress_1 -> 
+
+  the fabric feels rough in your hands, like trying to carry a paper bag in winter.
+* warm and tingly.[] You wonder if the electricity you felt was visible to others.  You could almost feel them burning through the cloth as you pull off your  -> clothing_undress_1 ->
+.
+* numb and heavy.[] It feels like a struggle to lift them up to begin undressing. . You shake your arms out, hoping to awaken them. With great effort, you peel off your -> clothing_undress_1 ->
+.
+
+- A calm begins to come over you. #P 
+You look down at your -> clothing_undress_2 ->
+and  
+* unzip
+* unbutton
+* slide down
+- them. Down they go. #P
+
+Just a few more pieces to take off
+- (clothing_undress_3) 
+* bra[],
+* underwear[],
+* watch[],
+* earrings[],
+* handbag[],
+* bracelets[],
+* {clothing_undress_3} and then you're all done. -> clothing_undress_done
+- -> clothing_undress_3
+
+- (clothing_undress_done)
+
+By now there's
+* an untidy pile by your feet
+* * you shove the crumpled clothing into the {door_box}
+* * you begin folding each piece[], not wanting to {him} to think you were being careless.
+* neatly folded stack[] of clothing on top of the {door_box}. You bend down and place it all inside 
+
 
 - -> DONE
 
@@ -171,6 +207,14 @@ rose up in your stomach.
 * t-shirt
 * blouse
 * dress
+- ->->
+
+== clothing_undress_2
+* pants
+* stockings
+* leggings
+* jeans
+* skirt
 - ->->
 
 == count_backwards(count_backwards_var, extra)
@@ -207,33 +251,12 @@ VAR pronoun_chosen = false
 }
 
 == he_picker_helper 
-// https://webapps.towson.edu/ows/pronouns.htm
-
 * he
-~ he = "he"
-~ his = "his"
-~ him = "him"
-~ He = "He"
-~ His = "His"
-~ man = "man"
-~ Man = "Man"
+-> set_male_pronouns ->
 * she
-~ he = "she"
-~ his = "her"
-~ him = "her"
-~ He = "She"
-~ His = "Her"
-~ man = "woman"
-~ Man = "Woman"
+-> set_female_pronouns ->
 * they
-~ he = "they"
-~ his = "their"
-~ him = "them"
-~ He = "They"
-~ His = "Their"
-~ man = "person"
-~ Man = "Person"
-~ says = "say"
+-> set_nb_pronouns ->
 - ->->
 
 
@@ -245,9 +268,28 @@ VAR pronoun_chosen = false
 }
 
 == He_picker_helper 
-// https://webapps.towson.edu/ows/pronouns.htm
-
 * He
+-> set_male_pronouns ->
+* She
+-> set_female_pronouns ->
+* They
+-> set_nb_pronouns ->
+- ->->
+
+== His_picker
+{ pronoun_chosen:
+	{His} ->->
+- else:
+	-> His_picker_helper ->->
+}
+
+== His_picker_helper 
+* His -> set_male_pronouns ->
+* Her -> set_female_pronouns ->
+* Their -> set_nb_pronouns ->
+- ->->
+
+== set_male_pronouns
 ~ he = "he"
 ~ his = "his"
 ~ him = "him"
@@ -255,7 +297,9 @@ VAR pronoun_chosen = false
 ~ His = "His"
 ~ man = "man"
 ~ Man = "Man"
-* She
+->->
+
+== set_female_pronouns
 ~ he = "she"
 ~ his = "her"
 ~ him = "her"
@@ -263,7 +307,9 @@ VAR pronoun_chosen = false
 ~ His = "Her"
 ~ man = "woman"
 ~ Man = "Woman"
-* They
+->->
+
+== set_nb_pronouns
 ~ he = "they"
 ~ his = "their"
 ~ him = "them"
@@ -272,34 +318,18 @@ VAR pronoun_chosen = false
 ~ man = "person"
 ~ Man = "Person"
 ~ says = "say"
-- ->->
+->->
 
 == person_walks_in 
 // https://webapps.towson.edu/ows/pronouns.htm
 
 -<> A
 * man
-~ he = "he"
-~ his = "his"
-~ He = "He"
-~ His = "His"
-~ man = "man"
-~ Man = "Man"
+-> set_male_pronouns ->
 * woman
-~ he = "she"
-~ his = "her"
-~ He = "She"
-~ His = "Her"
-~ man = "woman"
-~ Man = "Woman"
+-> set_female_pronouns ->
 * hooded figure
-~ he = "they"
-~ his = "their"
-~ He = "They"
-~ His = "Their"
-~ man = "person"
-~ Man = "Person"
-~ says = "say"
+-> set_nb_pronouns ->
 
 - walks in. 
 -> DONE

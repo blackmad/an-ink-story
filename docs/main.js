@@ -2,15 +2,21 @@ var urlParams = new URLSearchParams(window.location.search);
 var debug = urlParams.has('debug');
 console.log('debug', debug);
 
+let paragraphElementTag = 'span';
 
 (function() {
   let story = null;
-  fetch(urlParams.get('story') || 'story.json')
+  fetch(urlParams.get('story') || 'house.ink.json')
     .then(function(response){
       return response.text();
     })
     .then(function(storyContent){
       story = new inkjs.Story(storyContent);
+      const hash = decodeURIComponent(window.location.hash.substring(1));
+      if (hash.length > 0) {
+        console.log(hash);
+        // story.state.LoadJson(hash);
+      }
       continueStory();
     });
 
@@ -18,6 +24,10 @@ console.log('debug', debug);
   var choicesContainer = document.querySelectorAll('#choices')[0];
   let currentContainer = storyContainer;
   let currentClass = null;
+
+  function saveStateToHash() {
+    window.location.hash = story.state.ToJson();
+  }
 
   function showAfter(delay, el) {
     setTimeout(function() {
@@ -62,9 +72,13 @@ console.log('debug', debug);
 
     if (tag.indexOf(':') > -1) {
       [cmd, args] = tag.split(':').map(s => s.trim());
+    } else if (tag.indexOf('=') > -1) {
+      [cmd, args] = tag.split('=').map(s => s.trim());
     } else {
       cmd = tag;
     }
+
+    console.log(cmd);
     switch (cmd) {
       case 'START_CONTAINER':
         console.log('start container');
@@ -88,6 +102,20 @@ console.log('debug', debug);
         console.log('P')
         var p = document.createElement('p');
         currentContainer.appendChild(p);
+        break;
+      case 'NEWLINE_MODE':
+        console.log('NEWLINE_MODE', args)
+        if (args == 'false') { 
+          paragraphElementTag = 'span';
+        } else {
+          paragraphElementTag = 'p';
+        }
+        break;
+      case 'IMG':
+        console.log('IMG', args)
+        var imgEl = document.createElement('img');
+        imgEl.src = 'img/' + args;
+        currentContainer.appendChild(imgEl);
         break;
       case 'style':
         console.log('style')
@@ -122,11 +150,14 @@ console.log('debug', debug);
       const paragraphText = story.Continue();
 
       processTags(story.currentTags);
+      console.log(paragraphText)
+
+      saveStateToHash();
 
       if (paragraphText == null || paragraphText.trim() == '') {
         addChoices();
       } else {
-        var paragraphElement = document.createElement('span');
+        var paragraphElement = document.createElement(paragraphElementTag);
         if (currentClass) {
           paragraphElement.className = currentClass;
           currentClass = null;

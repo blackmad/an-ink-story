@@ -21,6 +21,7 @@ p, a {
     font-size: 13pt;
 }
 
+/*
 p {
     opacity: 0.0;
     transition: opacity 1.0s;
@@ -28,7 +29,7 @@ p {
 
 p.show {
     opacity: 1.0;
-}
+}*/
 
 p.choice {
     text-align: center;
@@ -45,18 +46,38 @@ div.note {
   background: moccasin;
 }
 
+#choicesHolder {
+  width: 100%;
+  clear: both;
+}
+
 #choices {
   display: block;
   max-width: 600px;
   margin: 0 auto;
   margin-bottom: 30px;
+  padding: 20px;
 }
 
-.second {
+span.second {
   display: block;
   text-align: right;
   width: 100%;
   font-style: italic;
   float: right;
-  padding: 10px 0px 10px 0px;
+ /* padding: 10px 0px 10px 0px;*/
+}
+
+img {
+  max-width: 33vw;
+  float: right;
+  padding: 10px;
+}
+
+img:nth-of-type(2n){
+  float:left;
+}
+
+span {
+  text-align: justify;
 }
